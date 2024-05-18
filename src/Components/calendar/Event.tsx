@@ -15,21 +15,44 @@ export default function Event({
   const [randomColor, setRandomColor] = useState("");
   const [selected, setSelected] = useState(false);
   const eventName = ev.events[0];
+  const [width, setWidth] = useState(ev.width); // Default width
+  const resizableRef = useRef(null);
+
+
   useEffect(() => {
     setRandomColor(getRandomColor());
   }, []);
-  const getRandomColor = () => {
-    const red = Math.floor(Math.random() * 256); 
-    const green = Math.floor(Math.random() * 256); 
-    const blue = Math.floor(Math.random() * 256); 
-
-    return "rgb(" + red + ", " + green + ", " + blue + ")";
-  };
+ 
 
   useEffect(() => {
     if (selected) handleDelete(eventName);
     setSelected(false);
   }, [selected]);
+
+  useEffect(() => {
+    const updatedResources = resources.map((res) => {
+      if (res.res_name === res_name) {
+        return {
+          ...res,
+          res_data: res.res_data.map((data) => {
+            if (data.events[0] === eventName) {
+              return {
+                ...data,
+                width: width,
+              };
+            }
+            return data;
+          }),
+        };
+      }
+      return res;
+    });
+    console.table(updatedResources[1].res_data);
+    // setResources(updatedResources);
+    localStorage.setItem("allResources", JSON.stringify(updatedResources));
+  }, [width]);
+
+
   const handleDelete = (event: string) => {
     document.addEventListener("keydown", (e) => {
       console.log(selected, e.key);
@@ -46,8 +69,6 @@ export default function Event({
       }
     });
   };
-  const [width, setWidth] = useState(ev.width); // Default width
-  const resizableRef = useRef(null);
 
   const handleMouseDown = (direction: "left" | "right", event: MouseEvent) => {
     event.preventDefault();
@@ -74,28 +95,14 @@ export default function Event({
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseup", onMouseUp);
   };
-  useEffect(() => {
-    const updatedResources = resources.map((res) => {
-      if (res.res_name === res_name) {
-        return {
-          ...res,
-          res_data: res.res_data.map((data) => {
-            if (data.events[0] === eventName) {
-              return {
-                ...data,
-                width: width,
-              };
-            }
-            return data;
-          }),
-        };
-      }
-      return res;
-    });
-    console.table(updatedResources[1].res_data);
-    // setResources(updatedResources);
-    localStorage.setItem("allResources", JSON.stringify(updatedResources));
-  }, [width]);
+
+  const getRandomColor = () => {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+
+    return "rgb(" + red + ", " + green + ", " + blue + ")";
+  };
   return (
     <div
       ref={resizableRef}
