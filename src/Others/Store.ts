@@ -77,6 +77,14 @@ const useResourcesStore = create<useResourcesProps>((set) => ({
         },
       ],
     },
+    {
+      res_name: "res 3",
+      res_data: []
+    },
+    {
+      res_name: "res 4",
+      res_data: []
+    },
   ],
   setResources: (data) => set({ resources: data }),
   addNewResource: (resource) => {
