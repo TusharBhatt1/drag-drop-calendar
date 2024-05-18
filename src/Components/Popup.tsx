@@ -86,15 +86,15 @@ export default function Popup() {
             <h1 className="text-lg text-blue-500 font-bold">Answering the questions that were asked -</h1>
             <div>
               <h2>Three Things learned from this assignment :</h2>
-              <p className="font-bold ml-4">Reading Docs , Debugging and better State management</p>
+              <p className="font-bold ml-4 mt-1">Reading Docs , Debugging and better State management</p>
             </div>
             <div>
               <h2>Most difficult part of this assignment :</h2>
-              <p className="font-bold ml-4">Styling the calendar.</p>
+              <p className="font-bold ml-4 mt-1">Ideal alignment and styling the calendar.</p>
             </div>
             <div>
               <h2>If more time was alotted :</h2>
-              <p className="font-bold ml-4">Would have encorporated search feature and better UI.</p>
+              <p className="font-bold ml-4 mt-1">Would have encorporated search feature and better UI.</p>
             </div>
           </div>
         </div>
