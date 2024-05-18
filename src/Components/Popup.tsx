@@ -90,7 +90,7 @@ export default function Popup() {
             </div>
             <div>
               <h2>Most difficult part of this assignment :</h2>
-              <p className="font-bold ml-4">State management.</p>
+              <p className="font-bold ml-4">Styling the calendar.</p>
             </div>
             <div>
               <h2>If more time was alotted :</h2>
