@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import useResourcesStore, { EventsType } from "../../Others/Store";
-import uniqolor from "uniqolor";
 
 export default function Event({
   i,
