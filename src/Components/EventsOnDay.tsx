@@ -36,7 +36,7 @@ export default function EventsOnDay({
           }
           return res;
         });
-
+        alert("Event Deleted");
         setResources(updatedResources);
         localStorage.setItem("allResources", JSON.stringify(updatedResources));
       }
