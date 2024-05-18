@@ -15,13 +15,16 @@ export default function Event({
     useResourcesStore();
   const [randomColor, setRandomColor] = useState("");
   const [selected, setSelected] = useState(false);
-  const eventName=ev.events[0]
+  const eventName = ev.events[0];
   useEffect(() => {
     setRandomColor(getRandomColor());
   }, []);
   const getRandomColor = () => {
-    const color = uniqolor.random().color;
-    return color;
+    const red = Math.floor(Math.random() * 256); 
+    const green = Math.floor(Math.random() * 256); 
+    const blue = Math.floor(Math.random() * 256); 
+
+    return "rgb(" + red + ", " + green + ", " + blue + ")";
   };
 
   useEffect(() => {
@@ -73,27 +76,26 @@ export default function Event({
     document.addEventListener("mouseup", onMouseUp);
   };
   useEffect(() => {
-
     const updatedResources = resources.map((res) => {
       if (res.res_name === res_name) {
         return {
-            ...res,
-            res_data: res.res_data.map((data) => {
-                if (data.events[0] === eventName) {
-                    return {
-                        ...data,
-                        width: width
-                    }
-                }
-                return data;
-            })
+          ...res,
+          res_data: res.res_data.map((data) => {
+            if (data.events[0] === eventName) {
+              return {
+                ...data,
+                width: width,
+              };
+            }
+            return data;
+          }),
         };
-    }
-    return res;
+      }
+      return res;
     });
-    console.table(updatedResources[1].res_data)
+    console.table(updatedResources[1].res_data);
     // setResources(updatedResources);
-    localStorage.setItem("allResources",JSON.stringify(updatedResources))
+    localStorage.setItem("allResources", JSON.stringify(updatedResources));
   }, [width]);
   return (
     <div

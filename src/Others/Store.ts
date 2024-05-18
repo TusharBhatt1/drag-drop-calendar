@@ -55,34 +55,23 @@ const useResourcesStore = create<useResourcesProps>((set) => ({
     {
       res_name: "res 1",
       res_data: [
-        {
-          events: ["Read"],
-          month: 4,
-          date: 21,
-          width:100
-        },
+     
         {
           events: ["Write"],
           month: 4,
           date: 19,
           width:100
         },
-        {
-          events: ["Dance"],
-          month: 4,
-          date: 25,
-          width:100
-
-        },
+     
       ],
     },
     {
       res_name: "res 2",
       res_data: [
         {
-          events: ["Swim"],
+          events: ["Dance"],
           month: 4,
-          date: 22,
+          date: 25,
           width:100
 
         },
