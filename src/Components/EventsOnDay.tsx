@@ -13,7 +13,8 @@ export default function EventsOnDay({
   const { currentMonthIndex, setSelectedEvent, setResources, resources } =
     useResourcesStore();
   const [randomColor, setRandomColor] = useState("");
-  const [selected, setSelected]=useState(false)
+  const [selected, setSelected] = useState(false);
+  const [event, setEvent] = useState("");
   useEffect(() => {
     setRandomColor(getRandomColor());
   }, []);
@@ -22,10 +23,13 @@ export default function EventsOnDay({
     return color;
   };
 
+  useEffect(() => {
+    handleDelete(event);
+  }, [selected]);
   const handleDelete = (event: string) => {
-  
     document.addEventListener("keydown", (e) => {
-      if ( e.key === "Delete") {
+      console.log(selected, e.key);
+      if (selected && e.key === "Delete") {
         const updatedResources = resources.map((res) => {
           if (res.res_name === res_name) {
             res.res_data = res.res_data.filter((d) => d.events[0] !== event);
@@ -44,12 +48,15 @@ export default function EventsOnDay({
       {eventsOnDay.map((ev, index) => (
         <div
           key={index}
-          className={`${selected && "border-2 border-black"} cursor-pointer text-white text-sm bg-black m-0.5 rounded-md font-bold`}
+          className={`${
+            selected && "border-2 border-black"
+          } cursor-pointer text-white text-sm bg-black m-0.5 rounded-md font-bold`}
           style={{ backgroundColor: randomColor }}
-          onClick={() =>{ 
-            setSelected(true)
-            setTimeout(()=>setSelected(false),1500)
-            handleDelete(ev.events[0])}}
+          onClick={() => {
+            setSelected(true);
+            setEvent(ev.events[0]);
+            setTimeout(() => setSelected(false), 1500);
+          }}
         >
           <p
             key={index}
