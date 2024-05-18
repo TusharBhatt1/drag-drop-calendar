@@ -10,7 +10,7 @@ export default function TopBar() {
   const { setIsOpen_newRes } = useModals();
   useEffect(() => {
     if (currentMonthIndex === new Date().getMonth()) {
-      window.scroll(104 * new Date().getDate(), 0);
+      window.scroll(103.9 * new Date().getDate(), 0);
    
     } else window.scroll(0, 0);
   }, [currentMonthIndex]);
@@ -19,7 +19,7 @@ export default function TopBar() {
   };
   const goToToday = () => {
     setCurrentMonthIndex(new Date().getMonth())
-    window.scroll(104 * new Date().getDate(), 0);
+    window.scroll(103.9 * new Date().getDate(), 0);
   };
   const goToNextMonth = () => {
     setCurrentMonthIndex(currentMonthIndex < 11 ? currentMonthIndex + 1 : 11);
