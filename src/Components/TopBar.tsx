@@ -19,7 +19,7 @@ export default function TopBar() {
   };
   const goToToday = () => {
     setCurrentMonthIndex(new Date().getMonth())
-    window.scroll(103.5 * new Date().getDate(), 0);
+    window.scroll(104 * new Date().getDate(), 0);
   };
   const goToNextMonth = () => {
     setCurrentMonthIndex(currentMonthIndex < 11 ? currentMonthIndex + 1 : 11);
