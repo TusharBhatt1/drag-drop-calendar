@@ -2,10 +2,10 @@
 
 ## Features
 
--Drag and Drop events
--Keyboard event (delete) to delete an event
--Create new resource or event
--State saved locally that it is maintained even after hard refresh.
+1.Drag and Drop events.
+2.Keyboard event (delete) to delete an event.
+3.Create new resource or event.
+4.State saved locally that it is maintained even after hard refresh.
 
 ## Installation
 
