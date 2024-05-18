@@ -46,7 +46,7 @@ export default function Popup() {
 
   if (show) {
     return (
-      <div className="fixed inset-0 flex justify-center items-center z-50">
+      <div className="fixed inset-0 flex justify-center items-center z-50 text-sm">
         <div className="bg-white flex  flex-col gap-4 rounded-lg shadow-lg p-6 max-w-md z-50">
           <div className="flex items-center justify-between  text-center">
             <h2 className="text-2xl font-bold mb-4">Key Highlights</h2>
@@ -59,13 +59,13 @@ export default function Popup() {
               <li key={index} className="flex items-center mb-3 gap-3">
                 <span className="text-xl mr-2">{feature.icon}</span>
                 <div>
-                  <h3 className="font-bold text-lg">{feature.title}</h3>
+                  <h3 className="font-bold">{feature.title}</h3>
                   <p className="text-sm text-gray-600">{feature.description}</p>
                 </div>
               </li>
             ))}
           </ul>
-          <div className="text-center py-4 flex flex-col items-center justify-center gap-4">
+          <div className="text-center py-2 flex flex-col items-center justify-center gap-4">
             <span className="text-gray-800 font-semibold">
               Crafted by <span className="text-lg">Tushar Bhatt</span>
             </span>
@@ -82,7 +82,23 @@ export default function Popup() {
               ))}
             </div>
           </div>
+          <div className="flex flex-col gap-2 text-xs">
+            <h1 className="text-lg text-blue-500 font-bold">Answering the questions that were asked -</h1>
+            <div>
+              <h2>Three Things learned from this assignment :</h2>
+              <p className="font-bold ml-4">Reading Docs , Debugging and better State management</p>
+            </div>
+            <div>
+              <h2>Most difficult part of this assignment :</h2>
+              <p className="font-bold ml-4">State management.</p>
+            </div>
+            <div>
+              <h2>If more time was alotted :</h2>
+              <p className="font-bold ml-4">Would have encorporated search feature and better UI.</p>
+            </div>
+          </div>
         </div>
+
         <div className="fixed inset-0 bg-black opacity-50"></div>
       </div>
     );
