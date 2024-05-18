@@ -5,7 +5,7 @@
 1. Drag and Drop events.
 2. Keyboard event (delete) to delete an event.
 3. Create new resource or event.
-4. State saved locally that it is maintained even after hard refresh.
+4. State saved locally that keeps it maintained even after hard refresh.
 
 ## Installation
 
