@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { months } from "../assets/calendarData";
-import useResourcesStore, { EventsType, ResourceType } from "../Others/Store";
+import { months } from "../../assets/calendarData";
+import useResourcesStore, { EventsType, ResourceType } from "../../Others/Store";
 import EventsOnDay from "./EventsOnDay";
-import useModals from "../Others/useModals";
+import useModals from "../../Others/useModals";
 
 interface ResourceProp {
   resource: ResourceType;
@@ -44,6 +44,7 @@ export default function Resource({ resource }: ResourceProp) {
             events: [selectedEvent.event],
             date: date,
             month: month,
+            width:selectedEvent.width
           },
         ];
       }

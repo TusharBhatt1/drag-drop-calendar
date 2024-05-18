@@ -44,7 +44,7 @@ export default function Popup() {
     },
   ];
 
-  if (show) {
+  if (!show) {
     return (
       <div className="fixed inset-0 flex justify-center items-center z-50 text-sm">
         <div className="bg-white flex  flex-col gap-4 rounded-lg shadow-lg p-6 max-w-md z-50">

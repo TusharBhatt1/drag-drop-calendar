@@ -2,3 +2,36 @@
     box-sizing: border-box;
     font-family: "Poppins";
 }
+.resizable {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .resizable .resize-handle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: ew-resize;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  
+  .resizable:hover .resize-handle,
+  .resizable.selected .resize-handle {
+    opacity: 1;
+  }
+  
+  .resizable .resize-handle-left {
+    left: -5px;
+  }
+  
+  .resizable .resize-handle-right {
+    right: -5px;
+  }
+  
+  

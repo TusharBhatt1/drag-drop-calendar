@@ -1,5 +1,5 @@
-import AllResources from "./Components/AllResources";
-import Days from "./Components/Days";
+import AllResources from "./Components/calendar/AllResources";
+import Days from "./Components/calendar/Days";
 import TopBar from "./Components/TopBar";
 
 export default function App() {

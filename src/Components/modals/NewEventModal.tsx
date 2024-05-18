@@ -18,7 +18,8 @@ export default function NewEventModal() {
                 {
                     events:[newEvent],
                     date:addTo.addTo_date,
-                    month:addTo.addTo_month
+                    month:addTo.addTo_month,
+                    width:100
                 }
             ]
           }

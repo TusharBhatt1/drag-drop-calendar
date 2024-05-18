@@ -4,12 +4,14 @@ export interface EventsType {
   events: string[];
   date: number;
   month: number;
+  width:number
 }
 export interface DragType {
   event: string;
   date: number;
   month: number;
   res_name: string;
+  width:number
 }
 
 export interface ResourceType {
@@ -42,6 +44,8 @@ const useResourcesStore = create<useResourcesProps>((set) => ({
     date: 0,
     month: 0,
     res_name: "",
+   width:100
+
   },
 
   setSelectedEvent: (obj) => set({ selectedEvent: obj }),
@@ -55,16 +59,20 @@ const useResourcesStore = create<useResourcesProps>((set) => ({
           events: ["Read"],
           month: 4,
           date: 21,
+          width:100
         },
         {
           events: ["Write"],
           month: 4,
           date: 19,
+          width:100
         },
         {
           events: ["Dance"],
           month: 4,
           date: 25,
+          width:100
+
         },
       ],
     },
@@ -75,6 +83,8 @@ const useResourcesStore = create<useResourcesProps>((set) => ({
           events: ["Swim"],
           month: 4,
           date: 22,
+          width:100
+
         },
       ],
     },

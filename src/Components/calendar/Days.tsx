@@ -1,5 +1,5 @@
-import useResourcesStore from "../Others/Store";
-import { months, weekdays } from "../assets/calendarData";
+import useResourcesStore from "../../Others/Store";
+import { months, weekdays } from "../../assets/calendarData";
 
 export default function Days() {
   const { currentMonthIndex } = useResourcesStore();

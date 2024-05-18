@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-import useResourcesStore from "../Others/Store";
+import useResourcesStore from "../../Others/Store";
 import Resource from "./Resource";
 
 export default function AllResources() {
