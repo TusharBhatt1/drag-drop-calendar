@@ -11,6 +11,7 @@ export default function AllResources() {
     //@ts-expect-error
     setResources(JSON.parse(fromLocalStorage) || resources);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (
