@@ -1,4 +1,4 @@
-import {useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useResourcesStore, { EventsType } from "../Others/Store";
 import uniqolor from "uniqolor";
 export default function EventsOnDay({
@@ -10,53 +10,49 @@ export default function EventsOnDay({
   res_name: string;
   eventsOnDay: EventsType[];
 }) {
-  const { currentMonthIndex, setSelectedEvent } =
+  const { currentMonthIndex, setSelectedEvent, setResources, resources } =
     useResourcesStore();
+  const [randomColor, setRandomColor] = useState("");
+  const [selected, setSelected]=useState(false)
+  useEffect(() => {
+    setRandomColor(getRandomColor());
+  }, []);
+  const getRandomColor = () => {
+    const color = uniqolor.random().color;
+    return color;
+  };
 
-    const [randomColor, setRandomColor] = useState('');
+  const handleDelete = (event: string) => {
+  
+    document.addEventListener("keydown", (e) => {
+      if ( e.key === "Delete") {
+        const updatedResources = resources.map((res) => {
+          if (res.res_name === res_name) {
+            res.res_data = res.res_data.filter((d) => d.events[0] !== event);
+          }
+          return res;
+        });
 
-    useEffect(() => {
-      setRandomColor(getRandomColor());
-    }, []); 
-    const getRandomColor = () => {
-      const color = uniqolor.random().color
-      ;
-      return color;
-    }
-
-  // const handleDelete = (event: string) => {
-  //   if (selected) {
-  //     document.addEventListener("keydown", (e) => {
-  //       if (e.key === "Delete") {
-  //         setResources(
-  //           resources.map((res) => {
-  //             if (res.res_name === res_name) {
-  //               res.res_data = res.res_data.filter(
-  //                 (d) => d.events[0] !== event
-  //               );
-  //             }
-  //             return res;
-  //           })
-  //         );
-  //       }
-  //     });
-  //   }
-
-  //   setSelected(!selected);
-  // };
+        setResources(updatedResources);
+        localStorage.setItem("allResources", JSON.stringify(updatedResources));
+      }
+    });
+  };
 
   return (
     <div className="w-[110px] h-[80px] border border-l-0 border-black flex flex-wrap flex-col ">
       {eventsOnDay.map((ev, index) => (
         <div
           key={index}
-          className="cursor-pointer text-white text-sm bg-black m-0.5 rounded-md font-bold"
+          className={`${selected && "border-2 border-black"} cursor-pointer text-white text-sm bg-black m-0.5 rounded-md font-bold`}
           style={{ backgroundColor: randomColor }}
-          // onClick={() => handleDelete(ev.events[0])}
+          onClick={() =>{ 
+            setSelected(true)
+            setTimeout(()=>setSelected(false),1500)
+            handleDelete(ev.events[0])}}
         >
           <p
             key={index}
-            
             draggable
             onDrag={() => {
               setSelectedEvent({
