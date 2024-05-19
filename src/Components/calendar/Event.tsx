@@ -108,7 +108,7 @@ export default function Event({
       ref={resizableRef}
       className={`resizable ${
         selected ? "selected border-2 border-black" : ""
-      } cursor-pointer text-white text-sm bg-black m-0.5 rounded-md font-bold`}
+      } cursor-move text-white text-sm bg-black m-0.5 rounded-md font-bold`}
       style={{ width: `${width}px`, backgroundColor: randomColor }}
       onClick={() => {
         setSelected(true);
@@ -136,6 +136,7 @@ export default function Event({
       >
         {ev.events[0]}
       </p>
+
       <div
         className="resize-handle resize-handle-right"
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

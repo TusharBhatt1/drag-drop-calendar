@@ -36,6 +36,9 @@ export default function TopBar() {
         >
         New Resource  <AiFillPlusCircle color="black" size={24} /> 
         </button>
+        <div>
+        <span className="text-xs text-slate-500">(Double click  on the block to create event)</span>
+        </div>
       {/* </div> */}
       <div className="flex justify-center items-center gap-3">
         <button
