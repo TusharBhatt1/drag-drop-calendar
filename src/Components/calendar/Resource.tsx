@@ -86,7 +86,7 @@ export default function Resource({ resource }: ResourceProp) {
 
   return (
     <div className="flex">
-      <p className="w-[128px] h-[80px] bg-white flex flex justify-center items-center border border-black fixed text-center">
+      <p className="w-[128px] z-50 h-[80px] bg-white flex flex justify-center items-center border border-black fixed text-center">
         {res_name}
       </p>
       <div className="flex justify-start items-center ml-32">
